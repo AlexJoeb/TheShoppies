@@ -1,9 +1,11 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import movieReducer from "./reducers/movieReducer";
+import nominationReducer from "./reducers/nominationReducer";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    movies: movieReducer,
+    nominations: nominationReducer,
   },
 });
 

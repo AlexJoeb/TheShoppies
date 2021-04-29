@@ -1,8 +1,7 @@
-import { title } from "process";
 import { useState } from "react";
 import { Movie } from "../types";
 export default function MovieList() {
-  const [movies, setMovies] = useState<Movie[]>([
+  const [movies] = useState<Movie[]>([
     {
       title: "Lord of the Rings",
       published: 1997,
@@ -53,10 +52,7 @@ export default function MovieList() {
     },
   ]);
   return (
-    <ul
-      role="list"
-      className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 xs:gap-x-4 xl:gap-x-8 gap-y-4"
-    >
+    <ul className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 xs:gap-x-4 xl:gap-x-8 gap-y-4">
       {movies.length &&
         movies.map((movie, index) => (
           <li key={index} className="relative bg-white rounded-lg shadow">
