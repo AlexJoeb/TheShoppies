@@ -11,9 +11,9 @@ const slice = createSlice({
       ...state,
       action.payload,
     ],
-    removeNomination: (state, action: PayloadAction<Movie>) =>
-      state.filter((movie: Movie) => !Object.is(movie, action.payload)),
-    voidNominations: (state) => [],
+    removeNomination: (state, action: PayloadAction<string>) =>
+      state.filter((movie: Movie) => movie.imdbID !== action.payload),
+    voidNominations: () => [],
   },
 });
 
