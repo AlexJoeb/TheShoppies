@@ -1,4 +1,4 @@
-import { SpeakerphoneIcon, XIcon } from "@heroicons/react/outline";
+import { SpeakerphoneIcon } from "@heroicons/react/outline";
 
 export default function Banner({
   setOpen,
