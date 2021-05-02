@@ -53,8 +53,8 @@ export default function MovieCard({
             cardType === CardType.NOMINATED_CARD ? "red" : "blue"
           }-500 disabled:bg-blue-200`}
           disabled={
-            nominations.length >= 5 ||
-            (cardType === CardType.HOME_LIST &&
+            cardType === CardType.HOME_LIST &&
+            (nominations.length >= 5 ||
               !!nominations.filter((nom) => nom.imdbID === movie.imdbID).length)
           }
           onClick={() =>
