@@ -7,10 +7,11 @@ const slice = createSlice({
   name: "nominations",
   initialState,
   reducers: {
-    addNomination: (state, action: PayloadAction<Movie>) => [
-      ...state,
-      action.payload,
-    ],
+    addNomination: (state, action: PayloadAction<Movie>) =>
+      state.filter((movie) => movie.imdbID === action.payload.imdbID).length >=
+      1
+        ? state
+        : [...state, action.payload],
     removeNomination: (state, action: PayloadAction<string>) =>
       state.filter((movie: Movie) => movie.imdbID !== action.payload),
     voidNominations: () => [],

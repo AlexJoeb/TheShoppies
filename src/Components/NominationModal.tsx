@@ -2,7 +2,7 @@
 import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useAppSelector } from "../Redux/hooks";
-import MovieCard from "./MovieCard";
+import MovieCard, { CardType } from "./MovieCard";
 
 interface ModalProps {
   nominationModalOpen: boolean;
@@ -68,7 +68,11 @@ export default function NominationModal({
                 {!!nominations &&
                   nominations.length >= 1 &&
                   nominations.map((nomination) => (
-                    <MovieCard key={nomination.imdbID} movie={nomination} />
+                    <MovieCard
+                      key={nomination.imdbID}
+                      movie={nomination}
+                      cardType={CardType.NOMINATED_CARD}
+                    />
                   ))}
               </ul>
             </div>
