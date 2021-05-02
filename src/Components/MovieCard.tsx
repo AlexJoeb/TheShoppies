@@ -45,13 +45,17 @@ export default function MovieCard({
         </div>
         <button
           type="button"
-          className={`py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-${
-            cardType === CardType.NOMINATED_CARD ? "red" : "blue"
-          }-600 hover:bg-${
-            cardType === CardType.NOMINATED_CARD ? "red" : "blue"
-          }-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${
-            cardType === CardType.NOMINATED_CARD ? "red" : "blue"
-          }-500 disabled:bg-blue-200`}
+          className={`py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white ${
+            cardType === CardType.NOMINATED_CARD ? "bg-red-600" : "bg-blue-600"
+          } ${
+            cardType === CardType.NOMINATED_CARD
+              ? "hover:bg-red-700"
+              : "hover:bg-blue-700"
+          } focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+            cardType === CardType.NOMINATED_CARD
+              ? "focus:ring-red-500"
+              : "focus:ring-blue-500"
+          } disabled:bg-blue-200`}
           disabled={
             cardType === CardType.HOME_LIST &&
             (nominations.length >= 5 ||
