@@ -18,7 +18,7 @@ function App() {
     const nominationsFromLocal = localStorage.getItem("nominations");
     if (!nominationsFromLocal || !nominationsFromLocal.trim()) return;
     dispatch(fetchPriorNominations());
-  }, []);
+  }, [dispatch]);
   return (
     <div className="pb-8">
       <div className="app w-full min-h-screen bg-gray-100 sm:p-12 lg:px-24">

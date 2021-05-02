@@ -60,7 +60,7 @@ export const fetchPriorNominations = createAsyncThunk(
     const ids: string[] = nominationsInStorage.split(",");
     ids.forEach(async (id) => {
       // Take ID and fetch the movie from the database.
-      const result = await axios
+      await axios
         .get(
           `http://www.omdbapi.com/?i=${id}&type=movie&r=json&apikey=${OMDB_API_KEY}`
         )
