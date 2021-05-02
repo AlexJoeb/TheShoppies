@@ -51,7 +51,11 @@ export default function MovieCard({
             cardType === CardType.NOMINATED_CARD ? "red" : "blue"
           }-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${
             cardType === CardType.NOMINATED_CARD ? "red" : "blue"
-          }-500`}
+          }-500 disabled:bg-blue-200`}
+          disabled={
+            cardType === CardType.HOME_LIST &&
+            !!nominations.filter((nom) => nom.imdbID === movie.imdbID).length
+          }
           onClick={() =>
             cardType === CardType.NOMINATED_CARD ? removeCard() : nominate()
           }

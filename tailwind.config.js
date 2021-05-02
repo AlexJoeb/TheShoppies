@@ -20,6 +20,7 @@ module.exports = {
   },
   variants: {
     extend: {
+      backgroundColor: ['disabled'],
       scale: ['group-hover'],
     },
   },
