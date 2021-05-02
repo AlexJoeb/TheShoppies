@@ -23,6 +23,7 @@ export default function Form({ setNominationModalOpen }: FormProps) {
       // On cleanup, cancel timer.
       if (bufferId !== null) clearTimeout(bufferId);
     };
+    // eslint-disable-next-line
   }, [title]);
 
   return (

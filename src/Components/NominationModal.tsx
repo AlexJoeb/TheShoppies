@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import React, { Fragment } from "react";
+import React, { Fragment, MutableRefObject } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useAppSelector } from "../Redux/hooks";
 import MovieCard, { CardType } from "./MovieCard";
@@ -12,8 +12,10 @@ export default function NominationModal({
   nominationModalOpen: open,
   setNominationModalOpen: setOpen,
 }: ModalProps) {
+  const closeButton = React.useRef<HTMLElement | null>(null);
   const nominations = useAppSelector(({ nominations }) => nominations);
   if (!nominations || nominations.length <= 0) return null;
+  console.log("Here", nominations);
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -22,6 +24,7 @@ export default function NominationModal({
         className="fixed z-10 inset-0 overflow-y-auto"
         open={open}
         onClose={setOpen}
+        initialFocus={closeButton}
       >
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
@@ -54,6 +57,7 @@ export default function NominationModal({
           >
             <div className="relative w-screen inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6 md:max-w-xl lg:max-w-2xl xl:max-w-4xl bg-gray-100">
               <svg
+                ref={closeButton as MutableRefObject<SVGSVGElement | null>}
                 onClick={() => setOpen(false)}
                 className="absolute bg-white rounded-full -top-4 -right-4 cursor-pointer fill-current text-red-400 w-8 h-8"
                 xmlns="http://www.w3.org/2000/svg"
