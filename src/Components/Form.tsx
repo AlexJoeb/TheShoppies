@@ -55,7 +55,7 @@ export default function Form({ setNominationModalOpen }: FormProps) {
       <button
         type="button"
         className={`w-full flex-none xs:w-auto mt-4 xs:mt-0 inline-flex items-center ml-2 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
-          !!nominations.length ? "block" : "hidden"
+          nominations && !!nominations.length ? "block" : "hidden"
         }`}
         onClick={() => setNominationModalOpen(true)}
       >
