@@ -21,7 +21,6 @@ The shoppies is an interactive application that allows users to add up to five m
   - One second delay to prevent flooding API end-point with requests.
 - Typed-safe code using React TypeScript
 - Application state managed by Redux, component state by `useState` hooks.
-- Integrated Tests
 
 ##### _Installation_
 
