@@ -35,7 +35,7 @@ export const fetchMovies = createAsyncThunk(
     dispatch(setLoading("pending"));
     const result = await axios
       .get(
-        `http://www.omdbapi.com/?s=${title}&type=movie&r=json&apikey=${OMDB_API_KEY}`
+        `https://www.omdbapi.com/?s=${title}&type=movie&r=json&apikey=${OMDB_API_KEY}`
       )
       .then(({ data: { Search } }) => {
         dispatch(setLoading("succeeded"));

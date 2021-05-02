@@ -62,7 +62,7 @@ export const fetchPriorNominations = createAsyncThunk(
       // Take ID and fetch the movie from the database.
       await axios
         .get(
-          `http://www.omdbapi.com/?i=${id}&type=movie&r=json&apikey=${OMDB_API_KEY}`
+          `https://www.omdbapi.com/?i=${id}&type=movie&r=json&apikey=${OMDB_API_KEY}`
         )
         .then(({ data: { Poster, Title, Type, Year, imdbID } }) => {
           dispatch(
